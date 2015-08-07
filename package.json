@@ -1,7 +1,8 @@
 {
   "name": "presentation-typescript",
   "version": "0.0.0",
-  "dependencies": {},
+  "license": "MIT",
+  "repository": "https://github.com/pimterry/intro-to-typescript",
   "devDependencies": {
     "bespoke": "^1.0.0",
     "bespoke-backdrop": "^1.0.0",

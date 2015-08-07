@@ -1,8 +1,132 @@
-// New to Stylus? Check out http://learnboost.github.io/stylus
-// Use modern CSS thanks to Autoprefixer: https://github.com/ai/autoprefixer
-
-// Import CSS from "node_modules" and "bower_components"
-// thanks to Stylus' "import css" and "paths" options
-
 @import 'prism/themes/prism-okaidia.css'
-// Check out "bower_components/prism/themes/" for available themes
+@import url("../satatic/open-sans");
+
+@font-face {
+  font-family:'Open Sans';
+  font-style:normal;
+  font-weight:400;
+  src:local('Open Sans'), url("../static/open-sans.woff2") format('woff2');
+}
+
+typeScriptBlue = #007acc;
+
+body {
+  background-color: #fafafa;
+  font-family: 'Open Sans', sans;
+}
+
+.typescript {    
+  font-family: 'Open Sans', sans;
+  color: typeScriptBlue;
+}
+
+.bespoke-backdrop {
+  transition-duration: 0.3s;
+}
+
+.bespoke-slide {
+  background-color: rgba(255, 255, 255, 0);  
+  transition: none;
+  padding: 20px;
+
+  aside {
+      display: none;
+  }
+}
+
+.todo:before {
+  content: "TODO: "
+  color: #f00;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.full-slide {
+  font-size: 90pt;
+  line-height: 98%;
+}
+
+.fullish-slide {
+  @extend .full-slide
+  font-size: 73pt;
+}
+
+ul {
+  margin: 10px 0;
+  text-align: left;
+}
+
+address {
+  letter-spacing: -0.8px;
+  margin: 70px auto 0 auto;
+  text-align: left;
+  width: 600px;
+  font-style: normal;
+  line-height: 150%
+  
+  .author {
+    font-size: 120%;
+  }
+
+  .author, a {
+    font-weight: bolder;
+  }
+
+  .org {
+    color: #6ea0b0;
+
+    .i {
+      color: #00548e;
+    }
+  }
+
+  a {
+    color: inherit;
+    &:hover {
+      font-style: underline;
+    }
+  }
+}
+
+pre {
+  padding: 22px 16px !important;
+  font-size: 14px;
+  min-width: 80%;
+}
+
+.sideBySide {
+  flex-direction: row;
+  width: 100%;
+
+  > * {
+    width: 48%;
+    margin: 0.5em 0.4em !important;
+    padding: 26px 10px;
+    font-size: 56%;
+    float: left;
+    display: inline-block;
+  }
+}
+
+.highlight {
+  font-weight: bolder;
+  color: #c13038;
+}
+
+.lowlight {
+  opacity: 0.6;
+}
+
+.title, .finish {
+  background: url('/static/title-background.png');
+  background-size: cover;
+  background-position: center;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+.token.property, .token.tag, .token.constant, .token.symbol, .token.deleted {
+  color: #FF3E74;
+}
