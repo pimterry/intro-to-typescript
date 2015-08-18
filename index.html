@@ -17,57 +17,231 @@
           <div class="note bio"><span>Tech Lead &amp; Open-Source Champion at&nbsp;</span><span class="org vcard"><a href="http://softwire.com" rel="group" class="org fn url">Softw<span class="i">i</span>re</a></span></div>
         </address>
       </section>
+      <section>     <img src="static/softwireLogo.png" alt="Softwire" class="logo-big"></section>
       <section>
-        <h2>Keyboard Interaction</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a></h3>
+        <h1 class="typescript full-slide">TypeScript</h1>
+        <h2>JavaScript + types</h2>
       </section>
       <section>
-        <h2>Touch Interaction</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a></h3>
+        <pre style="height: 640px; display: flex; align-items: center; margin: -40px 0;"><code class="language-javascript">navigator.geolocation.getCurrentPosition(function onSuccess(position) {
+  var lat = position.latitude;
+  var long = position.longitude;
+  
+  var lastUpdated = Date.parse(position.timestamp);
+  var now = new Date();
+  var positionIsCurrent = now.getYear() === lastUpdated.getYear();
+  
+  if (positionIsCurrent) {
+    var div = document.createElement("div");
+    div.class = "message";
+    div.style = "width: 100%; height: 100px; background-color: red;";		
+    div.text = "Up to date position: " + lat + ", " + long;
+    document.body.append(div);
+  } else {
+    var messageDivs = document.querySelectorAll("div.message");
+    messageDivs.forEach(function (message) {
+      message.style.display = false;
+    });
+  }
+}, { enableHighAccuracy: "never" });</code></pre>
+        <aside>
+          <8>minutes to get here and run through markups, at fairly high speed</8>
+        </aside>
       </section>
       <section>
-        <h2>Responsive Slides</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a></h3>
-      </section>
-      <section>
-        <h2>Bullet List</h2>
-        <h3 class="bullet">Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a></h3>
+        <h1>ES2015 <small>(ES6)</small></h1>
         <ul>
-          <li>Bullet 1</li>
-          <li>Bullet 2</li>
-          <li>Bullet 3</li>
+          <li>Arrow functions <code class='language-javascript'>(x) =&gt; x * 2</code></li>
+          <li>Destructuring <code class='language-javascript'>var {a, b} = {a:1, b:2}</code></li>
+          <li>Spread operator <code class='language-javascript'>var xs = [1, 2, ...iterable, 5, 6];</code></li>
+          <li>For/of <code class='language-javascript'>for (var x of [1, 2, 3}) { ... }</code></li>
+          <li>Symbols <code class='language-javascript'>var s = Symbol("mySymbol")</code></li>
+          <li>Let/const <code class='language-javascript'>let x = 1; const y = "hi"</code></li>
+          <li>Template strings <code class='language-javascript'>y = `hello ${myVar}`</code></li>
+          <li>And ES2015 modules, classes, promises, default parameters, unicode support, <u>ES7</u> Decorators, and more...</li>
         </ul>
       </section>
       <section>
-        <h2>Syntax Highlighting</h2>
-        <h3>Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a></h3>
-        <pre><code class="language-javascript">bespoke.from('article', [
-  classes(),
-  keys(),
-  touch(),
-  bullets('li, .bullet')
-]);
+        <h2>ES2015 Backward compatibility</h2>
+        <div class="sideBySide">
+          <pre><code class="language-javascript">var f = (x, y) =&gt; x * y
+
+var {a, b} = {a:1, b:2}
+
+var iterable = [3, 4];
+var abc = [1, 2, ...iterable, 5, 6];
+
+for (var i of abc) {
+  f(i, 10);
+}
+
+
+let x = 1;
+const y = "hi"
+
+var z = `hello ${y}`</code></pre>
+          <pre><code class="language-javascript">var f = function (x, y) { return x * y; };
+
+var _a = { a: 1, b: 2 }, a = _a.a, b = _a.b;
+
+var iterable = [3, 4];
+var abc = [1, 2].concat(iterable, [5, 6]);
+
+for (var _i = 0; _i &lt; abc.length; _i++) {
+  var i = abc[_i];
+  f(i, 10);
+}
+
+var x = 1;
+var y = "hi";
+
+var z = "hello " + y;
 </code></pre>
-      </section>
-      <section data-bespoke-hash="named-route">
-        <h2>Named Route</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a></h3>
-        <p>Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.</p>
-      </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
-        <h2>Emphatic Slide!</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-backdrop">bespoke-backdrop</a></h3>
+        </div>
       </section>
       <section>
-        <h2 class="bullet">Just the beginning...</h2><br>
+        <h2>ES2015 Compatibility</h2>
+        <style>
+          table {
+            font-size: 12pt;
+          }
+          sup {
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+          th {
+            position: relative;
+            padding: 10px 6px 0 6px;
+          }
+          .platforms th {
+            height: 80px;
+          }
+        </style><table>
+        <thead>
+        <tr>
+          <th colspan="5" class="platformtype" id="compiler-header" style="display: table-cell; background: rgb(255, 223, 164);">Compilers/polyfills</th>
+          <th colspan="3" class="platformtype" id="engine-header" style="display: table-cell; background: rgb(248, 232, 160);">Servers/runtimes</th>
+        </tr>
+        <tr class="platforms">
+          <th class="platform compiler" data-browser="typescript" data-num="6" data-features="0.5217625988799873" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 52%, transparent 52%, transparent 100%); border: 1px solid rgba(255,0,0,0.8)">
+              <abbr title="TypeScript 1.5-alpha">
+                TypeScript +<br>
+                <nobr>core-js</nobr>
+              </abbr>
+            <sup class="num-features" title="Number of implemented features"><b style="color:hsl(62,100%,25%)">52</b>%</sup>
+          </th>
+          <th class="platform tr compiler" data-browser="tr" data-num="1" data-features="0.5852869695511286" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 58%, transparent 58%, transparent 100%), linear-gradient(to top, rgba(241, 220, 80, 0.2) 0%, rgba(241, 220, 80, 0.2) 61%, transparent 61%, transparent 100%);"><abbr title="Traceur">Traceur</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(70,100%,25%)">59</b>%</sup></th>
+          <th class="platform babel compiler" data-browser="babel" data-num="2" data-features="0.7063817050863697" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 70%, transparent 70%, transparent 100%), linear-gradient(to top, rgba(241, 220, 80, 0.2) 0%, rgba(241, 220, 80, 0.2) 80%, transparent 80%, transparent 100%);">
+              <abbr title="Babel">
+                Babel +<br>
+                <nobr>core-js</nobr>
+              </abbr>
+            <sup class="num-features" title="Number of implemented features"><b style="color:hsl(84,100%,25%)">71</b>%</sup>
+          </th>
+          <th class="platform closure compiler" data-browser="closure" data-num="4" data-features="0.3138267997893284" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 31%, transparent 31%, transparent 100%);"><abbr title="Closure Compiler v20150729">Closure</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(37,100%,25%)">31</b>%</sup></th>
+          <th class="platform jsx compiler" data-browser="jsx" data-num="5" data-features="0.18114216701173225" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 18%, transparent 18%, transparent 100%);"><abbr title="JSX">JSX</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(21,100%,25%)">18</b>%</sup></th>
+          <th class="platform phantom engine" data-browser="phantom" data-num="61" data-features="0.08063765343535788" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 8%, transparent 8%, transparent 100%);"><abbr title="PhantomJS 2.0">PJS</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(9,100%,25%)">8</b>%</sup></th>
+          <th class="platform node engine" data-browser="node" data-num="62" data-features="0.1744310735990302" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 17%, transparent 17%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 30%, transparent 30%, transparent 100%);"><abbr title="Node 0.12.0">Node</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(20,100%,25%)">17</b>%</sup></th>
+          <th class="platform iojs engine" data-browser="iojs" data-num="63" data-features="0.44053848878732765" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 44%, transparent 44%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 59%, transparent 59%, transparent 100%);"><abbr title="io.js 3.0.0">io.js</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(52,100%,25%)">44</b>%</sup></th>
+        </tr>
+        </thead>
+        </table>
+        <table>
+        <thead>
+        <tr>
+          <th colspan="5" class="platformtype" id="desktop-header" style="display: table-cell; background: rgb(255, 244, 195);">Desktop browsers</th>
+          <th colspan="1" class="platformtype" id="mobile-header" style="display: table-cell; background: rgb(248, 218, 160);">Mobile</th>
+        </tr>
+        <tr class="platforms">
+          <th class="platform ie11 desktop" data-browser="ie11" data-num="9" data-features="0.16796747967479678" style="background-image: linear-gradient(to top, rgba(38, 114, 238, 0.498039) 0%, rgba(38, 114, 238, 0.498039) 16%, transparent 16%, transparent 100%);"><abbr title="Internet Explorer">IE 11</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(20,100%,25%)">17</b>%</sup></th>
+          <th class="platform edge desktop" data-browser="edge" data-num="10" data-features="0.6642336423424545" style="background-image: linear-gradient(to top, rgba(38, 114, 238, 0.498039) 0%, rgba(38, 114, 238, 0.498039) 66%, transparent 66%, transparent 100%), linear-gradient(to top, rgba(38, 114, 238, 0.2) 0%, rgba(38, 114, 238, 0.2) 87%, transparent 87%, transparent 100%);"><abbr title="Internet Explorer, Microsoft Edge">Edge</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(79,100%,25%)">66</b>%</sup></th>
+          <th class="platform firefox39 desktop" data-browser="firefox39" data-num="31" data-features="0.6558745914828374" style="background-image: linear-gradient(to top, rgba(255, 149, 0, 0.498039) 0%, rgba(255, 149, 0, 0.498039) 65%, transparent 65%, transparent 100%), linear-gradient(to top, rgba(255, 149, 0, 0.2) 0%, rgba(255, 149, 0, 0.2) 67%, transparent 67%, transparent 100%);"><abbr title="Firefox">Firefox 39</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(78,100%,25%)">66</b>%</sup></th>
+          <th class="platform chrome44 desktop" data-browser="chrome44" data-num="50" data-features="0.4817075927504078" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 48%, transparent 48%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 64%, transparent 64%, transparent 100%);"><abbr title="Chrome, Opera">Chrome 44</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(57,100%,25%)">48</b>%</sup></th>
+          <th class="platform safari71_8 desktop" data-browser="safari71_8" data-num="56" data-features="0.1833690874723873" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 18%, transparent 18%, transparent 100%);">Safari 8<sup class="num-features" title="Number of implemented features"><b style="color:hsl(22,100%,25%)">18</b>%</sup></th>
+          <th class="platform ios8 mobile" data-browser="ios8" data-num="66" data-features="0.1833690874723873" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 18%, transparent 18%, transparent 100%);"><abbr title="iOS Safari">iOS8</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(22,100%,25%)">18</b>%</sup></th>
+        </tr>
+        </thead>
+        </table><small style="position: absolute; bottom: 10px; text-align: center; right: 0; left: 0;">
+          (See <a href='http://kangax.github.io/compat-table/es6/'>
+          kangax.github.io/compat-table/es6/</a> for full details)</small>
+      </section>
+      <section>
+        <h2><span class='typescript'>TypeScript</span> Roadmap</h2>
+        <h3><strong>1.6</strong></h3>
         <ul>
-          <li>Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em></li>
-          <li>Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em></li>
-          <li>Edit JavaScript in <em>'src/scripts/main.js'</em></li>
-        </ul><br>
+          <li>ES2015 Generators</li>
+          <li>More powerful types: local types, intersection types, generic aliases</li>
+          <li>More powerful classes: 'extends' expressions, abstract classes</li>
+          <li>JSX support</li>
+          <li>More to come...</li>
+        </ul><small style="position: absolute; bottom: 10px; text-align: center; right: 0; left: 0;">
+          (See <a href='https://github.com/Microsoft/TypeScript/wiki/Roadmap'>
+          github.com/Microsoft/TypeScript/wiki/Roadmap</a> for full details)</small>
+      </section>
+      <section>
+        <h2><span class='typescript'>TypeScript</span> Roadmap</h2>
+        <h3><strong>2.0</strong></h3>
         <ul>
-          <li><strong>Enjoy! :)</strong><a href="http://twitter.com/markdalgleish"> -@markdalgleish</a></li>
+          <li>Async/await</li>
+          <li>Module bundling</li>
+          <li>Mixins?</li>
+          <li>???              </li>
+        </ul><small style="position: absolute; bottom: 10px; text-align: center; right: 0; left: 0;">
+          (See <a href='https://github.com/Microsoft/TypeScript/wiki/Roadmap'>
+          github.com/Microsoft/TypeScript/wiki/Roadmap</a> for full details)</small>
+        <aside>
+          <5>minutes from start of ES2015 to here</5>
+        </aside>
+      </section>
+      <section>
+        <h2>Downsides</h2>
+        <ul class="bullet">
+          <li></li>
+          <li>Compile step</li>
+          <li>Occasional type wrangling</li>
+          <li>Could be more ambitious</li>
         </ul>
+      </section>
+      <section>
+        <h2>Other options</h2>
+        <ul class="bullet">
+          <li></li>
+          <li>Closure compiler</li>
+          <li>Flow</li>
+          <li>Babel</li>
+        </ul>
+        <aside>
+          <ul>
+            <li>Closure compiler infers and checks types where it can</li>
+            <li>Limited, nowhere near as powerful or as effective</li>
+            <li>Can do type annotations too, but they have to be in JSDoc comments, bit painful</li>
+            <li></li>
+            <li>Flow is very powerful inference engine, particularly around nulls</li>
+            <li>Focused primarily on inference, not on adding new features</li>
+            <li>Also supports annotations, obviously has JSX support in too</li>
+            <li>Doesn't have anything like the maturity and tool support</li>
+            <li>No DefinitelyTyped!</li>
+            <li>Much weaker ES2015 support</li>
+            <li>Good choice if you definitely only want inference though, or need JSX *now*.</li>
+            <li></li>
+            <li>Babel has plugins to add type checking</li>
+            <li>Definitely won't have good tool support, needs more setup</li>
+            <li>Huge flexibility though if you're looking to glue together lots of JS extensions</li>
+          </ul>
+        </aside>
+      </section>
+      <section data-bespoke-backdrop="title">
+        <h1 class="typescript full-slide">TypeScript</h1>
+        <h2>will finally bring peace<br/>to your troubled soul</h2>
+        <address class="vcard">
+          <div class="author fn">Tim Perry</div>
+          <div class="urls"><span><a href="http://twitter.com/pimterry" rel="me" class="nickname url">@pimterry</a></span></div>
+          <div class="note bio"><span>Tech Lead &amp; Open-Source Champion at&nbsp;</span><span class="org vcard"><a href="http://softwire.com" rel="group" class="org fn url">Softw<span class="i">i</span>re</a></span></div>
+        </address>
+        <aside>
+          <11:30>from start of ES2015 to finish</11:30>
+        </aside>
       </section>
     </article>
     <script src="build/build.js"></script>
