@@ -96,16 +96,16 @@ pre {
 }
 
 .sideBySide {
+  display: flex;
   flex-direction: row;
-  width: 100%;
+  justify-content: space-around;
 
   > * {
-    width: 48%;
+    min-width: initial;
+    width: initial;
     margin: 0.5em 0.4em !important;
     padding: 26px 10px;
-    font-size: 56%;
-    float: left;
-    display: inline-block;
+    font-size: 65%;
   }
 }
 

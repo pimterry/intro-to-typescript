@@ -60,9 +60,8 @@ html
         h1 ES2015 <small>(ES6)</small>
         ul
           li Arrow functions <code class='language-javascript'>(x) =&gt; x * 2</code>
-
-          li Destructuring <code class='language-javascript'>{a, b} = {a:1, b:2}</code>
-          li Spread operator <code class='language-javascript'>myFunction(...iterable);</code>
+          li Destructuring <code class='language-javascript'>var {a, b} = {a:1, b:2}</code>
+          li Spread operator <code class='language-javascript'>var xs = [1, 2, ...iterable, 5, 6];</code>
           li For/of <code class='language-javascript'>for (var x of [1, 2, 3}) { ... }</code>
           li Symbols <code class='language-javascript'>var s = Symbol("mySymbol")</code>
           li Let/const <code class='language-javascript'>let x = 1; const y = "hi"</code>
@@ -70,7 +69,47 @@ html
           li And ES2015 modules, classes, promises, default parameters, unicode support, <u>ES7</u> Decorators, and more...
 
       section
-        h1 ES2015 Compatibility
+        h2 ES2015 Backward compatibility
+        div.sideBySide
+          pre
+            code.language-javascript.
+              var f = (x, y) =&gt; x * y
+
+              var {a, b} = {a:1, b:2}
+
+              var iterable = [3, 4];
+              var abc = [1, 2, ...iterable, 5, 6];
+
+              for (var i of abc) {
+                f(i, 10);
+              }
+
+
+              let x = 1;
+              const y = "hi"
+
+              var z = `hello ${y}`
+          pre
+            code.language-javascript.
+              var f = function (x, y) { return x * y; };
+
+              var _a = { a: 1, b: 2 }, a = _a.a, b = _a.b;
+
+              var iterable = [3, 4];
+              var abc = [1, 2].concat(iterable, [5, 6]);
+
+              for (var _i = 0; _i &lt; abc.length; _i++) {
+                var i = abc[_i];
+                f(i, 10);
+              }
+
+              var x = 1;
+              var y = "hi";
+
+              var z = "hello " + y;
+
+      section
+        h2 ES2015 Compatibility
         style
           | table {
           |   font-size: 12pt;
