@@ -6,7 +6,6 @@ html
     title TypeScript
 
     link(rel='stylesheet', type='text/css', href='build/build.css')
-
   body
 
     article
@@ -59,6 +58,134 @@ html
           8 minutes to get here and run through markups, at fairly high speed
 
       section
+        h1 Type Inference
+        ul.bullet
+          li
+          li
+            style
+              | .tweetWrapper { width: 260px; transform-origin: top; transform: scale(1.5); }
+              | .tweetWrapper iframe { width: auto !important; }
+            div.tweetWrapper
+              | <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">&quot;Dynamic typing&quot;: The belief that you can&#39;t explain to a computer why your code works, but you can keep track of it all in your head.</p>
+              | &mdash; Chris Martin (@chris__martin) <a href="https://twitter.com/chris__martin/status/630532950484881412">August 10, 2015</a></blockquote>
+              | <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        aside
+          ul
+            li Infers types from initialized values, and from a bsae of types it already knows
+            li As seen on the previous slide, that covers a lot
+            li Good case for just running the typescript compiler and writing plain JS, can catch lots of errors
+
+      section
+        h1 Type Annotation
+        ul.bullet
+          li
+          li
+            pre
+              code.language-javascript.
+                 var y: number;
+                 y = 1; // compiles
+                 y = "hello"; // won't compile: "Type 'string' is not assignable to type number"
+          li
+            pre
+              code.language-javascript.
+                 function sayHelloTo(name: string): string {
+                   return "hello " + name;
+                 }
+
+                 var message = sayHelloTo("Tim"); // message inferred as string
+                 var result: number = sayHelloTo("everybody"); // won't compile
+                 message = sayHelloTo({name: "Tim"}); // won't compile
+        aside
+          ul
+            li Need some way to specify types in the cases that doesn't cover though if you want more safety
+            li We do that with type annotations
+
+      section
+        h1 Type Annotation
+        style
+          | .small-code pre { padding-top: 5px !important; padding-bottom: 5px !important; }
+        ul.bullet.small-code
+          li
+          li
+            pre
+              code.language-javascript.
+                var callback: (e: Event) => boolean;
+          li
+            pre
+              code.language-javascript.
+                var person: { name: string, age: number };
+          li
+            pre
+              code.language-javascript.
+                var lotsOfStrings: string[];
+          li
+            pre
+              code.language-javascript.
+                var stringOrNumber: string|number;
+          li
+            pre
+              code.language-javascript.
+                var noIdea: any;
+
+      section
+        h1 Interfaces
+        ul.bullet
+          li
+          li
+            pre(style='font-size: 63%')
+              code.language-javascript.
+                var greeter: { hello: (name: string) => string, bye: (name: string) => string, language: string };
+          li
+            pre
+              code.language-javascript.
+                interface Greeter {
+                  hello(name: string): string;
+                  bye(name: string): string;
+
+                  language: string;
+                }
+
+                var greeter: Greeter;
+
+      section
+        h1 Classes        
+        div.sideBySide(style='font-size: 95%')
+          pre
+            code.language-javascript.
+              class EnglishGreeter implements Greeter {
+                hello(name: string): string {
+                  return "hi " + name;
+                }
+
+                bye(name: string): string {
+                  return "bye " + name;
+                }
+
+                language = "English";
+              }
+
+              var greeter: Greeter = new EnglishGreeter();
+          pre
+            code.language-javascript.
+              var EnglishGreeter = (function () {
+                function EnglishGreeter() {
+                    this.language = "English";
+                }
+                EnglishGreeter.prototype.hello = function (name) {
+                    return "hi " + name;
+                };
+                EnglishGreeter.prototype.bye = function (name) {
+                    return "bye " + name;
+                };
+                return EnglishGreeter;
+              })();
+              var greeter = new EnglishGreeter();
+        aside
+
+      section
+        h1 <strong style='font-size: 200%;'>Optional</strong> Typing
+
+      section
         h1 ES2015 <small>(ES6)</small>
         ul
           li Arrow functions <code class='language-javascript'>(x) =&gt; x * 2</code>
@@ -68,7 +195,7 @@ html
           li Symbols <code class='language-javascript'>var s = Symbol("mySymbol")</code>
           li Let/const <code class='language-javascript'>let x = 1; const y = "hi"</code>
           li Template strings <code class='language-javascript'>y = `hello ${myVar}`</code>
-          li And ES2015 modules, classes, promises, default parameters, unicode support, <u>ES7</u> Decorators, and more...
+          li And ES2015 modules, classes, promises, default parameters, unicode support, <u>ES7</u> decorators, and more...
 
       section
         h2 ES2015 Backward compatibility
