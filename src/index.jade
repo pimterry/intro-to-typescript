@@ -22,13 +22,63 @@ html
             span Tech Lead &amp; Open-Source Champion at&nbsp;
             span.org.vcard
               a.org.fn.url(href='http://softwire.com',rel="group") Softw<span class="i">i</span>re
+        aside
+          ul
+            li Tim Perry
+            li Talk about TypeScript
+            li Dramatic title
+            li Discomfort writing code using structure you don't understand, not knowing if it'll work
+            li Calling a function, trying to work out what parameters it wants, get useful information from an object returned
+            li Maybe external libraries and APIs, maybe the code you wrote 6 months ago
+            li Lots of reading docs, reading code, trying things at random, uncertainty on whether you're right genearally
+            li Avoidable, through static type checking, get structure and confidence in correctness
+            li Develop faster and easier for near zero effort
+            li TypeScript: why that's worthwhile, how it does this, what else it gives to
+            li Hopefully convince you it's worth trying out
+            li Limited time, feel for how this works, questions in the pub after
+            li [1.30 mins]
 
       section      
         img(src='static/softwireLogo.png',class='logo-big',alt='Softwire')
+        aside
+          ul
+            li Context: I work for Softwire, bespoke development company in London and Bristol
+            li Develop all sorts of projects for all sorts of other companies, much of which is in JS
+            li We've been looking at TypeScript to help us develop large JS applications faster and better
+            li Should note: we are recruiting for developers in any language, and we also offer training courses in modern JS
+            li [3]
 
       section
         h1.typescript.full-slide TypeScript
         h2 JavaScript + types
+        aside
+          ul
+            li Anyway, what is TypeScript
+            li Compile to JS language
+            li JS superset
+            li Type checked
+            li Optional typing, unlike Java etc
+            li Inferred types: automatically detected wherever possible, just plain JS
+            li There's a reason why this is useful
+
+      section
+        style
+          | .tweetWrapper { width: 260px; transform-origin: top; transform: scale(1.5); }
+          | .tweetWrapper iframe { width: auto !important; }
+        div.tweetWrapper
+          | <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">&quot;Dynamic typing&quot;: The belief that you can&#39;t explain to a computer why your code works, but you can keep track of it all in your head.</p>
+          | &mdash; Chris Martin (@chris__martin) <a href="https://twitter.com/chris__martin/status/630532950484881412">August 10, 2015</a></blockquote>
+          | <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        aside
+          ul
+            li There's a reason this is useful: dynamic typing doesn't scale well
+            li Your code still has types: this function takes an object with a 'name' property
+            li But they're not written down. You have to know them, or go look them up
+            li You're not that good at that. The computer is.
+            li Static types let you leave the computer to that, and use its knowledge, rather than having to know everything yourself
+            li Computer understanding this is like having guaranteed up to date documentation at your fingertips
+            li Sort of like unit testing, but from the other direction: guaranteed you can't make whole classes of errors (rather than guaranteed that specific cases are ok) 
+            li Example, to try and convince you
 
       section
         pre(style='height: 640px; display: flex; align-items: center; margin: -40px 0;')
@@ -55,20 +105,16 @@ html
               }
             }, { enableHighAccuracy: "never" });
         aside
-          8 minutes to get here and run through markups, at fairly high speed
+          ul
+            li Explain what this does.
+            li Ask to try and spot some bugs
+            li Copy into TS playground
+            li Retype latitude and longitude
+            li Other IDEs can do this too: good maturity in Atom/Sublime/Visual Studio/Intellij
+            li Explain the rest
 
       section
         h1 Type Inference
-        ul.bullet
-          li
-          li
-            style
-              | .tweetWrapper { width: 260px; transform-origin: top; transform: scale(1.5); }
-              | .tweetWrapper iframe { width: auto !important; }
-            div.tweetWrapper
-              | <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">&quot;Dynamic typing&quot;: The belief that you can&#39;t explain to a computer why your code works, but you can keep track of it all in your head.</p>
-              | &mdash; Chris Martin (@chris__martin) <a href="https://twitter.com/chris__martin/status/630532950484881412">August 10, 2015</a></blockquote>
-              | <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         aside
           ul
             li Infers types from initialized values, and from a bsae of types it already knows
@@ -149,10 +195,10 @@ html
 
       section
         h1 Classes        
-        div.sideBySide(style='font-size: 95%')
+        div.sideBySide
           pre
             code.language-javascript.
-              class EnglishGreeter implements Greeter {
+              class Greeter {
                 hello(name: string): string {
                   return "hi " + name;
                 }
@@ -164,23 +210,26 @@ html
                 language = "English";
               }
 
-              var greeter: Greeter = new EnglishGreeter();
+              var greeter: Greeter = new Greeter();
           pre
             code.language-javascript.
-              var EnglishGreeter = (function () {
-                function EnglishGreeter() {
-                    this.language = "English";
+              var Greeter = (function () {
+                function Greeter() {
+                  this.language = "English";
                 }
-                EnglishGreeter.prototype.hello = function (name) {
-                    return "hi " + name;
+                Greeter.prototype.hello = function (name) {
+                  return "hi " + name;
                 };
-                EnglishGreeter.prototype.bye = function (name) {
-                    return "bye " + name;
+                Greeter.prototype.bye = function (name) {
+                  return "bye " + name;
                 };
-                return EnglishGreeter;
+                return Greeter;
               })();
-              var greeter = new EnglishGreeter();
+              var greeter = new Greeter();
+
         aside
+          ul
+            li [16 min to the start of this]
 
       section
         h1 <strong style='font-size: 200%;'>Optional</strong> Typing
@@ -196,46 +245,15 @@ html
           li Let/const <code class='language-javascript'>let x = 1; const y = "hi"</code>
           li Template strings <code class='language-javascript'>y = `hello ${myVar}`</code>
           li And ES2015 modules, classes, promises, default parameters, unicode support, <u>ES7</u> decorators, and more...
+        aside
+          ul
+            li TypeScript also gives you pretty great ES6/2015 support
+            li All big and exciting, enough for a whole separate talk
+            li Three points to make around all this
+            li Lots of exciting stuff here, which ties in nicely to TS (modules + classes)
+            li TypeScript is ahead of the curve, can already use lots if in an environment that supports it
+            li TypeScript also gives backward compatibility, so for about 30% of the spec you can use it already *right now*
 
-      section
-        h2 ES2015 Backward compatibility
-        div.sideBySide
-          pre
-            code.language-javascript.
-              var f = (x, y) =&gt; x * y
-
-              var {a, b} = {a:1, b:2}
-
-              var iterable = [3, 4];
-              var abc = [1, 2, ...iterable, 5, 6];
-
-              for (var i of abc) {
-                f(i, 10);
-              }
-
-
-              let x = 1;
-              const y = "hi"
-
-              var z = `hello ${y}`
-          pre
-            code.language-javascript.
-              var f = function (x, y) { return x * y; };
-
-              var _a = { a: 1, b: 2 }, a = _a.a, b = _a.b;
-
-              var iterable = [3, 4];
-              var abc = [1, 2].concat(iterable, [5, 6]);
-
-              for (var _i = 0; _i &lt; abc.length; _i++) {
-                var i = abc[_i];
-                f(i, 10);
-              }
-
-              var x = 1;
-              var y = "hi";
-
-              var z = "hello " + y;
 
       section
         h2 ES2015 Compatibility
@@ -307,35 +325,59 @@ html
           | kangax.github.io/compat-table/es6/</a> for full details)
 
       section
+        h2 ES2015 Backward compatibility
+        div.sideBySide
+          pre
+            code.language-javascript.
+              var f = (x, y) =&gt; x * y
+
+              var {a, b} = {a:1, b:2}
+
+              var iterable = [3, 4];
+              var abc = [1, 2, ...iterable, 5, 6];
+
+              for (var i of abc) {
+                f(i, 10);
+              }
+
+
+              let x = 1;
+              const y = "hi"
+
+              var z = `hello ${y}`
+          pre
+            code.language-javascript.
+              var f = function (x, y) { return x * y; };
+
+              var _a = { a: 1, b: 2 }, a = _a.a, b = _a.b;
+
+              var iterable = [3, 4];
+              var abc = [1, 2].concat(iterable, [5, 6]);
+
+              for (var _i = 0; _i &lt; abc.length; _i++) {
+                var i = abc[_i];
+                f(i, 10);
+              }
+
+              var x = 1;
+              var y = "hi";
+
+              var z = "hello " + y;
+
+      section
         h2 <span class='typescript'>TypeScript</span> Roadmap
-        h3
-          strong 1.6
         ul
           li ES2015 Generators
           li More powerful types: local types, intersection types, generic aliases
           li More powerful classes: 'extends' expressions, abstract classes
           li JSX support
-          li More to come...
-
-        small(style='position: absolute; bottom: 10px; text-align: center; right: 0; left: 0;')
-          | (See <a href='https://github.com/Microsoft/TypeScript/wiki/Roadmap'>
-          | github.com/Microsoft/TypeScript/wiki/Roadmap</a> for full details)
-
-      section
-        h2 <span class='typescript'>TypeScript</span> Roadmap
-        h3
-          strong 2.0
-        ul
           li Async/await
-          li Module bundling
-          li Mixins?
-          li ???              
+          li Built-in module bundling
+          li And more...
 
         small(style='position: absolute; bottom: 10px; text-align: center; right: 0; left: 0;')
           | (See <a href='https://github.com/Microsoft/TypeScript/wiki/Roadmap'>
           | github.com/Microsoft/TypeScript/wiki/Roadmap</a> for full details)
-        aside
-          5 minutes from start of ES2015 to here
 
       section
         h2 Downsides
@@ -384,6 +426,7 @@ html
             span.org.vcard
               a.org.fn.url(href='http://softwire.com',rel="group") Softw<span class="i">i</span>re
         aside
-          11:30 from start of ES2015 to finish
+          ul
+            li 26:17 minutes to finish
 
     script(src='build/build.js')
