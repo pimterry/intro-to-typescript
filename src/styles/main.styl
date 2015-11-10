@@ -1,3 +1,4 @@
+@import 'default'
 @import 'prism/themes/prism-okaidia.css'
 @import url("../satatic/open-sans");
 
@@ -12,16 +13,35 @@ typeScriptBlue = #007acc;
 
 body {
   background-color: #fafafa;
+  color: #404040;
   font-family: 'Open Sans', sans;
+  font-size: 18px;
+}
+
+article {
+  transition: none !important;
+}
+
+h1 {
+  font-size: 72px;
+  line-height: 82px;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 42px;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
 }
 
 .typescript {    
   font-family: 'Open Sans', sans;
   color: typeScriptBlue;
-}
-
-.bespoke-backdrop {
-  transition-duration: 0.3s;
 }
 
 .bespoke-slide {
@@ -52,8 +72,13 @@ body {
 }
 
 ul {
+  list-style: none;
   margin: 10px 0;
   text-align: left;
+
+  li {
+    margin-bottom: 12px;
+  }
 }
 
 address {
@@ -90,7 +115,7 @@ address {
 }
 
 pre {
-  padding: 22px 16px;
+  padding: 26px !important;
   font-size: 14px;
   min-width: 80%;
 }
