@@ -233,6 +233,28 @@ var greeter = new Greeter();
         </aside>
       </section>
       <section>
+        <h1>DefinitelyTyped</h1>
+        <pre style="font-size: 65%; padding: 10px 20px 8px !important; overflow: hidden"><code class="language-javascript">interface JQueryStatic {
+  getJSON(url: string, success?: (data: any, status: string, xhr: JQueryXHR) => any): JQueryXHR;
+  ...
+}
+
+interface JQueryXHR extends XMLHttpRequest, JQueryPromise<any> {
+  responseJSON?: any;
+  then(doneCallback: (data: any, status: string, xhr: JQueryXHR) => void,
+  &nbsp;&nbsp;&nbsp;&nbsp; failCallback?: (xhr: JQueryXHR, status: string, error: any) => void): JQueryPromise<any>;
+  ...
+}
+
+...
+
+declare var $: JQueryStatic;
+declare module "jquery" {
+  export = $;
+}
+</code></pre>
+      </section>
+      <section>
         <h1><strong style='font-size: 200%;'>Optional</strong> Typing</h1>
       </section>
       <section>
