@@ -244,7 +244,7 @@ html
           li Symbols <code class='language-javascript'>var s = Symbol("mySymbol")</code>
           li Let/const <code class='language-javascript'>let x = 1; const y = "hi"</code>
           li Template strings <code class='language-javascript'>y = `hello ${myVar}`</code>
-          li And ES2015 modules, classes, promises, default parameters, unicode support, <u>ES7</u> decorators, and more...
+          li And ES2015 modules, classes, promises, default parameters, unicode support, generators, <u>ES7</u> decorators and more...
         aside
           ul
             li TypeScript also gives you pretty great ES6/2015 support
@@ -277,15 +277,15 @@ html
         | <thead>
         | <tr>
         |   <th colspan="5" class="platformtype" id="compiler-header" style="display: table-cell; background: rgb(255, 223, 164);">Compilers/polyfills</th>
-        |   <th colspan="3" class="platformtype" id="engine-header" style="display: table-cell; background: rgb(248, 232, 160);">Servers/runtimes</th>
+        |   <th colspan="4" class="platformtype" id="engine-header" style="display: table-cell; background: rgb(248, 232, 160);">Servers/runtimes</th>
         | </tr>
         | <tr class="platforms">
-        |   <th class="platform compiler" data-browser="typescript" data-num="6" data-features="0.5217625988799873" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 52%, transparent 52%, transparent 100%); border: 1px solid rgba(255,0,0,0.8)">
+        |   <th class="platform compiler" data-browser="typescript" data-num="6" data-features="0.5217625988799873" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 51%, transparent 51%, transparent 100%); border: 1px solid rgba(255,0,0,0.8)">
         |       <abbr title="TypeScript 1.5-alpha">
         |         TypeScript +<br>
         |         <nobr>core-js</nobr>
         |       </abbr>
-        |     <sup class="num-features" title="Number of implemented features"><b style="color:hsl(62,100%,25%)">52</b>%</sup>
+        |     <sup class="num-features" title="Number of implemented features"><b style="color:hsl(62,100%,25%)">51</b>%</sup>
         |   </th>
         |   <th class="platform tr compiler" data-browser="tr" data-num="1" data-features="0.5852869695511286" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 58%, transparent 58%, transparent 100%), linear-gradient(to top, rgba(241, 220, 80, 0.2) 0%, rgba(241, 220, 80, 0.2) 61%, transparent 61%, transparent 100%);"><abbr title="Traceur">Traceur</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(70,100%,25%)">59</b>%</sup></th>
         |   <th class="platform babel compiler" data-browser="babel" data-num="2" data-features="0.7063817050863697" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 70%, transparent 70%, transparent 100%), linear-gradient(to top, rgba(241, 220, 80, 0.2) 0%, rgba(241, 220, 80, 0.2) 80%, transparent 80%, transparent 100%);">
@@ -295,11 +295,12 @@ html
         |       </abbr>
         |     <sup class="num-features" title="Number of implemented features"><b style="color:hsl(84,100%,25%)">71</b>%</sup>
         |   </th>
-        |   <th class="platform closure compiler" data-browser="closure" data-num="4" data-features="0.3138267997893284" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 31%, transparent 31%, transparent 100%);"><abbr title="Closure Compiler v20150729">Closure</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(37,100%,25%)">31</b>%</sup></th>
+        |   <th class="platform closure compiler" data-browser="closure" data-num="4" data-features="0.3138267997893284" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 30%, transparent 30%, transparent 100%);"><abbr title="Closure Compiler v20150729">Closure</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(37,100%,25%)">30</b>%</sup></th>
         |   <th class="platform jsx compiler" data-browser="jsx" data-num="5" data-features="0.18114216701173225" style="background-image: linear-gradient(to top, rgba(241, 220, 80, 0.498039) 0%, rgba(241, 220, 80, 0.498039) 18%, transparent 18%, transparent 100%);"><abbr title="JSX">JSX</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(21,100%,25%)">18</b>%</sup></th>
-        |   <th class="platform phantom engine" data-browser="phantom" data-num="61" data-features="0.08063765343535788" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 8%, transparent 8%, transparent 100%);"><abbr title="PhantomJS 2.0">PJS</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(9,100%,25%)">8</b>%</sup></th>
-        |   <th class="platform node engine" data-browser="node" data-num="62" data-features="0.1744310735990302" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 17%, transparent 17%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 30%, transparent 30%, transparent 100%);"><abbr title="Node 0.12.0">Node</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(20,100%,25%)">17</b>%</sup></th>
-        |   <th class="platform iojs engine" data-browser="iojs" data-num="63" data-features="0.44053848878732765" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 44%, transparent 44%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 59%, transparent 59%, transparent 100%);"><abbr title="io.js 3.0.0">io.js</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(52,100%,25%)">44</b>%</sup></th>
+        |   <th class="platform phantom engine" data-browser="phantom" data-num="61" data-features="0.08063765343535788" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 11%, transparent 11%, transparent 100%);"><abbr title="PhantomJS 2.0">PJS</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(9,100%,25%)">11</b>%</sup></th>
+        |   <th class="platform node engine" data-browser="node" data-num="62" data-features="0.1744310735990302" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 17%, transparent 17%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 30%, transparent 30%, transparent 100%);"><abbr title="Node 0.12.0">Node 0.12</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(20,100%,25%)">17</b>%</sup></th>
+        |   <th class="platform node engine" data-browser="node" data-num="62" data-features="0.1744310735990302" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 52%, transparent 52%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 74%, transparent 74%, transparent 100%);"><abbr title="Node 4.0">Node 4.0</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(62,100%,25%)">53</b>%</sup></th>
+        |   <th class="platform node engine" data-browser="node" data-num="62" data-features="0.1744310735990302" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 58%, transparent 58%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 78%, transparent 78%, transparent 100%);"><abbr title="Node 5.0">Node 5.0</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(62,100%,25%)">59</b>%</sup></th>
         | </tr>
         | </thead>
         | </table>
@@ -307,15 +308,16 @@ html
         | <thead>
         | <tr>
         |   <th colspan="5" class="platformtype" id="desktop-header" style="display: table-cell; background: rgb(255, 244, 195);">Desktop browsers</th>
-        |   <th colspan="1" class="platformtype" id="mobile-header" style="display: table-cell; background: rgb(248, 218, 160);">Mobile</th>
+        |   <th colspan="2" class="platformtype" id="mobile-header" style="display: table-cell; background: rgb(248, 218, 160);">Mobile</th>
         | </tr>
         | <tr class="platforms">
-        |   <th class="platform ie11 desktop" data-browser="ie11" data-num="9" data-features="0.16796747967479678" style="background-image: linear-gradient(to top, rgba(38, 114, 238, 0.498039) 0%, rgba(38, 114, 238, 0.498039) 16%, transparent 16%, transparent 100%);"><abbr title="Internet Explorer">IE 11</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(20,100%,25%)">17</b>%</sup></th>
-        |   <th class="platform edge desktop" data-browser="edge" data-num="10" data-features="0.6642336423424545" style="background-image: linear-gradient(to top, rgba(38, 114, 238, 0.498039) 0%, rgba(38, 114, 238, 0.498039) 66%, transparent 66%, transparent 100%), linear-gradient(to top, rgba(38, 114, 238, 0.2) 0%, rgba(38, 114, 238, 0.2) 87%, transparent 87%, transparent 100%);"><abbr title="Internet Explorer, Microsoft Edge">Edge</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(79,100%,25%)">66</b>%</sup></th>
-        |   <th class="platform firefox39 desktop" data-browser="firefox39" data-num="31" data-features="0.6558745914828374" style="background-image: linear-gradient(to top, rgba(255, 149, 0, 0.498039) 0%, rgba(255, 149, 0, 0.498039) 65%, transparent 65%, transparent 100%), linear-gradient(to top, rgba(255, 149, 0, 0.2) 0%, rgba(255, 149, 0, 0.2) 67%, transparent 67%, transparent 100%);"><abbr title="Firefox">Firefox 39</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(78,100%,25%)">66</b>%</sup></th>
-        |   <th class="platform chrome44 desktop" data-browser="chrome44" data-num="50" data-features="0.4817075927504078" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 48%, transparent 48%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 64%, transparent 64%, transparent 100%);"><abbr title="Chrome, Opera">Chrome 44</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(57,100%,25%)">48</b>%</sup></th>
-        |   <th class="platform safari71_8 desktop" data-browser="safari71_8" data-num="56" data-features="0.1833690874723873" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 18%, transparent 18%, transparent 100%);">Safari 8<sup class="num-features" title="Number of implemented features"><b style="color:hsl(22,100%,25%)">18</b>%</sup></th>
-        |   <th class="platform ios8 mobile" data-browser="ios8" data-num="66" data-features="0.1833690874723873" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 18%, transparent 18%, transparent 100%);"><abbr title="iOS Safari">iOS8</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(22,100%,25%)">18</b>%</sup></th>
+        |   <th class="platform ie11 desktop" data-browser="ie11" data-num="9" data-features="0.16796747967479678" style="background-image: linear-gradient(to top, rgba(38, 114, 238, 0.498039) 0%, rgba(38, 114, 238, 0.498039) 16%, transparent 16%, transparent 100%);"><abbr title="Internet Explorer">IE 11</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(20,100%,25%)">16</b>%</sup></th>
+        |   <th class="platform edge desktop" data-browser="edge" data-num="10" data-features="0.6642336423424545" style="background-image: linear-gradient(to top, rgba(38, 114, 238, 0.498039) 0%, rgba(38, 114, 238, 0.498039) 63%, transparent 63%, transparent 100%), linear-gradient(to top, rgba(38, 114, 238, 0.2) 0%, rgba(38, 114, 238, 0.2) 87%, transparent 87%, transparent 100%);"><abbr title="Internet Explorer, Microsoft Edge">Edge</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(79,100%,25%)">63</b>%</sup></th>
+        |   <th class="platform firefox42 desktop" data-browser="firefox42" data-num="31" data-features="0.6558745914828374" style="background-image: linear-gradient(to top, rgba(255, 149, 0, 0.498039) 0%, rgba(255, 149, 0, 0.498039) 70%, transparent 70%, transparent 100%), linear-gradient(to top, rgba(255, 149, 0, 0.2) 0%, rgba(255, 149, 0, 0.2) 72%, transparent 72%, transparent 100%);"><abbr title="Firefox">Firefox 42</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(78,100%,25%)">71</b>%</sup></th>
+        |   <th class="platform chrome46 desktop" data-browser="chrome46" data-num="50" data-features="0.4817075927504078" style="background-image: linear-gradient(to top, rgba(129, 189, 0, 0.498039) 0%, rgba(129, 189, 0, 0.498039) 62%, transparent 62%, transparent 100%), linear-gradient(to top, rgba(129, 189, 0, 0.2) 0%, rgba(129, 189, 0, 0.2) 80%, transparent 80%, transparent 100%);"><abbr title="Chrome, Opera">Chrome 46</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(57,100%,25%)">63</b>%</sup></th>
+        |   <th class="platform safari71_9 desktop" data-browser="safari71_9" data-num="56" data-features="0.1833690874723873" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 54%, transparent 54%, transparent 100%);">Safari 9<sup class="num-features" title="Number of implemented features"><b style="color:hsl(57,100%,25%)">54</b>%</sup></th>
+        |   <th class="platform ios9 mobile" data-browser="ios8" data-num="66" data-features="0.1833690874723873" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 54%, transparent 54%, transparent 100%);"><abbr title="iOS Safari">iOS9</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(57,100%,25%)">54</b>%</sup></th>
+        |   <th class="platform an5.1 mobile" data-browser="an5.1" data-num="66" data-features="0.1833690874723873" style="background-image: linear-gradient(to top, rgba(159, 172, 198, 0.498039) 0%, rgba(159, 172, 198, 0.498039) 29%, transparent 29%, transparent 100%);"><abbr title="Android 5.1">Android 5.1</abbr><sup class="num-features" title="Number of implemented features"><b style="color:hsl(20,100%,25%)">29</b>%</sup></th>
         | </tr>
         | </thead>
         | </table>
@@ -367,11 +369,12 @@ html
       section
         h2 <span class='typescript'>TypeScript</span> Roadmap
         ul
-          li ES2015 Generators
-          li More powerful types: local types, intersection types, generic aliases
-          li More powerful classes: 'extends' expressions, abstract classes
-          li JSX support
-          li Async/await
+          li ES7 Async
+          li ES7 Exponention operator (2 ** 4)
+          li 'this' type
+          li ES3 compat for decorators and async
+          li Unreachable code detection
+          li Inferring types from included .js files
           li Built-in module bundling
           li And more...
 
@@ -383,7 +386,7 @@ html
         h2 Downsides
         ul.bullet
           li 
-          li Compile step
+          li Extra compile step
           li Occasional type wrangling
           li Could be more ambitious
 
